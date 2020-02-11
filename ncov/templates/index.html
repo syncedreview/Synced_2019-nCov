@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static 'materialize/css/materialize.min.css' %}"
+        media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h4 class="flow-text center grey-text">数据时间：{{ time }}</h4>
+            <div class="col s12">
+                <div class="card grey lighten-3">
+                    <div class="card-content black-text">
+                        <div class="row">
+                            <div class="col s3 center">
+                                <p class="flow-text red-text">{{ confirmed_case }}</p>
+                                <p class="flow-text">确证病例</p>
+                                <p class="flow-text red-text">新增{{ confirmedIncr }}</p>
+                            </div>
+                            <div class="col s3 center">
+                                <p class="flow-text orange-text">{{ suspected_case }}</p>
+                                <p class="flow-text">疑似病例</p>
+                                <p class="flow-text orange-text">新增{{ suspectedIncr }}</p>
+                            </div>
+                            <div class="col s3 center">
+                                <p class="flow-text green-text">{{ cured_case }}</p>
+                                <p class="flow-text">治愈病例</p>
+                                <p class="flow-text green-text">新增{{ curedIncr }}</p>
+                            </div>
+                            <div class="col s3 center">
+                                <p class="flow-text grey-text">{{ death_case }}</p>
+                                <p class="flow-text">死亡病例</p>
+                                <p class="flow-text grey-text">新增{{ deadIncr }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+</body>
+
+</html>
