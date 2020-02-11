@@ -27,7 +27,7 @@
 
 - ~~目前存在的不足是直接把 https://lab.isaaclin.cn/nCoV/ 的 API 包了一层（不相关字段太多），每次需要请求 https://lab.isaaclin.cn/nCoV/ 的所有数据，请求时间较长，大概需要 25 s 左右的时间才能渲染完上图内容~~
 
-- 目前在服务刚运行的时候请求一次 https://lab.isaaclin.cn/nCoV/ 并保存至 json 数据之本地，之后每小时请求一次新的数据保存，以本地的数据进行查询
+- 目前在服务刚运行的时候请求一次 https://lab.isaaclin.cn/nCoV/ 并保存至 json 数据至本地，之后每小时请求一次新的数据保存，以本地的数据进行查询
 
 - 目前流程：
 
