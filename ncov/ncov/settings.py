@@ -25,7 +25,7 @@ SECRET_KEY = '%#ivqw@1@$lhm5bwuzr7n8rdrgy&57!j=*e-l@@+t3t&+4r18p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['159.89.182.124', '106.15.226.129', 'sota.xyzlab.ai', 'lab.xyzlab.ai', '127.0.0.1', '144.202.28.242']
+ALLOWED_HOSTS = ['159.89.182.124', '106.15.226.129', '127.0.0.1', '144.202.28.242', 'applications.jiqizhixin.com']
 
 
 # Application definition
