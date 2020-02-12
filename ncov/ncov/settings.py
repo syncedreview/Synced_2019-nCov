@@ -126,8 +126,8 @@ STATICFILES_DIRS = (
 )
 
 # 跨域允许的请求方式，可以使用默认值，默认的请求方式为:
-from corsheaders.defaults import default_methods
-CORS_ALLOW_METHODS = default_methods
+# from corsheaders.defaults import default_methods
+# CORS_ALLOW_METHODS = default_methods
 # CORS_ALLOW_METHODS = (
 #     'GET',
 #     'POST',
@@ -138,8 +138,8 @@ CORS_ALLOW_METHODS = default_methods
 # )
 
 # 允许跨域的请求头，可以使用默认值，默认的请求头为:
-from corsheaders.defaults import default_headers
-CORS_ALLOW_HEADERS = default_headers
+# from corsheaders.defaults import default_headers
+# CORS_ALLOW_HEADERS = default_headers
 
 # CORS_ALLOW_HEADERS = (
 #     'XMLHttpRequest',
