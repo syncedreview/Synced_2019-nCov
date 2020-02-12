@@ -25,7 +25,7 @@ SECRET_KEY = '%#ivqw@1@$lhm5bwuzr7n8rdrgy&57!j=*e-l@@+t3t&+4r18p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['106.15.226.129', 'sota.xyzlab.ai', 'lab.xyzlab.ai', '127.0.0.1', '144.202.28.242']
+ALLOWED_HOSTS = ['159.89.182.124', '106.15.226.129', 'sota.xyzlab.ai', 'lab.xyzlab.ai', '127.0.0.1', '144.202.28.242']
 
 
 # Application definition
@@ -38,13 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -122,3 +124,40 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# 跨域允许的请求方式，可以使用默认值，默认的请求方式为:
+from corsheaders.defaults import default_methods
+CORS_ALLOW_METHODS = default_methods
+# CORS_ALLOW_METHODS = (
+#     'GET',
+#     'POST',
+#     'PUT',
+#     'PATCH',
+#     'DELETE',
+#     'OPTIONS'
+# )
+
+# 允许跨域的请求头，可以使用默认值，默认的请求头为:
+from corsheaders.defaults import default_headers
+CORS_ALLOW_HEADERS = default_headers
+
+# CORS_ALLOW_HEADERS = (
+#     'XMLHttpRequest',
+#     'X_FILENAME',
+#     'accept-encoding',
+#     'authorization',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+#     'Pragma',
+#     'x-token',
+# )
+
+# 跨域请求时，是否运行携带cookie，默认为False
+CORS_ALLOW_CREDENTIALS = True
+# 允许所有主机执行跨站点请求，默认为False
+# 如果没设置该参数，则必须设置白名单，运行部分白名单的主机才能执行跨站点请求
+CORS_ORIGIN_ALLOW_ALL = True
