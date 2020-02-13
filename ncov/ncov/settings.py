@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '%#ivqw@1@$lhm5bwuzr7n8rdrgy&57!j=*e-l@@+t3t&+4r18p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['159.89.182.124', '106.15.226.129', '127.0.0.1', '144.202.28.242', 'applications.jiqizhixin.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -124,6 +124,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 # 跨域允许的请求方式，可以使用默认值，默认的请求方式为:
 # from corsheaders.defaults import default_methods

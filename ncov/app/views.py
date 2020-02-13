@@ -12,44 +12,47 @@ sched = Scheduler()
 @sched.interval_schedule(hours=1)
 def fetch():
     url = 'https://lab.isaaclin.cn/nCoV/api/overall?latest=0'
-    content = requests.get(url)
-    content = json.loads(content.text)
-    data = []
-    for idx, val in enumerate(content['results']):
-        temp = {}
-        temp['confirmedCount'] = val['confirmedCount']
-        temp['suspectedCount'] = val['suspectedCount']
-        temp['curedCount'] = val['curedCount']
-        temp['deadCount'] = val['deadCount']
-        temp['updateTime'] = val['updateTime']
-        try:
-            temp['seriousCount'] = val['seriousCount']
-        except:
-            temp['seriousCount'] = 'NULL'
-        try:
-            temp['suspectedIncr'] = val['suspectedIncr']
-        except:
-            temp['suspectedIncr'] = 'NULL'
-        try:
-            temp['confirmedIncr'] = val['confirmedIncr']
-        except:
-            temp['confirmedIncr'] = 'NULL'
-        try:
-            temp['curedIncr'] = val['curedIncr']
-        except:
-            temp['curedIncr'] = 'NULL'
-        try:
-            temp['deadIncr'] = val['deadIncr']
-        except:
-            temp['deadIncr'] = 'NULL'
-        try:
-            temp['seriousIncr'] = val['seriousIncr']
-        except:
-            temp['seriousIncr'] = 'NULL'
-        data.append(temp)
+    try:
+        content = requests.get(url)
+        content = json.loads(content.text)
+        data = []
+        for idx, val in enumerate(content['results']):
+            temp = {}
+            temp['confirmedCount'] = val['confirmedCount']
+            temp['suspectedCount'] = val['suspectedCount']
+            temp['curedCount'] = val['curedCount']
+            temp['deadCount'] = val['deadCount']
+            temp['updateTime'] = val['updateTime']
+            try:
+                temp['seriousCount'] = val['seriousCount']
+            except:
+                temp['seriousCount'] = 'NULL'
+            try:
+                temp['suspectedIncr'] = val['suspectedIncr']
+            except:
+                temp['suspectedIncr'] = 'NULL'
+            try:
+                temp['confirmedIncr'] = val['confirmedIncr']
+            except:
+                temp['confirmedIncr'] = 'NULL'
+            try:
+                temp['curedIncr'] = val['curedIncr']
+            except:
+                temp['curedIncr'] = 'NULL'
+            try:
+                temp['deadIncr'] = val['deadIncr']
+            except:
+                temp['deadIncr'] = 'NULL'
+            try:
+                temp['seriousIncr'] = val['seriousIncr']
+            except:
+                temp['seriousIncr'] = 'NULL'
+            data.append(temp)
 
-    with open('data.json', 'w') as f:
-        json.dump(data, f)
+        with open('data.json', 'w') as f:
+            json.dump(data, f)
+    except:
+        print('Fetch Data Error...')
 
 fetch()
 sched.start()
