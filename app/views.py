@@ -47,6 +47,14 @@ def fetch():
                 temp['seriousIncr'] = val['seriousIncr']
             except:
                 temp['seriousIncr'] = 'NULL'
+            try:
+                temp['currentConfirmedCount'] = val['currentConfirmedCount']
+            except:
+                temp['currentConfirmedCount'] = 'NULL'
+            try:
+                temp['currentConfirmedIncr'] = val['currentConfirmedIncr']
+            except:
+                temp['currentConfirmedIncr'] = 'NULL'
             data.append(temp)
 
         with open('data.json', 'w') as f:
@@ -73,11 +81,13 @@ def show(request):
         "cured_case": target['curedCount'],
         "death_case": target['deadCount'],
         "serious_case": target['seriousCount'],
+        "current_confirmed_case": target['currentConfirmedCount'],
         "confirmedIncr": target['confirmedIncr'],
         "suspectedIncr": target['suspectedIncr'],
         "curedIncr": target['curedIncr'],
         "deadIncr": target['deadIncr'],
         "seriousIncr": target['deadIncr'],
+        "currentConfirmedIncr": target['currentConfirmedIncr'],
         "time": timestamp_to_strtime(target['updateTime'])[:-7]
     }
     return render(request, 'index.html', data)
@@ -98,11 +108,13 @@ def api(request):
         "cured_case": target['curedCount'],
         "death_case": target['deadCount'],
         "serious_case": target['seriousCount'],
+        "current_confirmed_case": target['currentConfirmedCount'],
         "confirmedIncr": target['confirmedIncr'],
         "suspectedIncr": target['suspectedIncr'],
         "curedIncr": target['curedIncr'],
         "deadIncr": target['deadIncr'],
         "seriousIncr": target['deadIncr'],
+        "currentConfirmedIncr": target['currentConfirmedIncr'],
         "time": timestamp_to_strtime(target['updateTime'])[:-7]
     }
     return JsonResponse(data)
